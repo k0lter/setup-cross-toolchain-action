@@ -102,6 +102,7 @@ jobs:
         with:
           target: ${{ matrix.target }}
       - run: sudo apt install -y musl-tools
+      - run: sudo ln -s /usr/bin/g++ /usr/bin/musl-g++
       - run: git clone https://github.com/taiki-e/rust-cross-toolchain.git
       - run: cargo $BUILD_STD build --verbose --target ${{ matrix.target }}
         working-directory: rust-cross-toolchain/docker/test/fixtures/rust
