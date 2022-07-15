@@ -120,6 +120,7 @@ jobs:
           persist-credentials: false
       - uses: taiki-e/install-action@shellcheck
       - uses: taiki-e/install-action@shfmt
+      - run: apt install musl-tools
       - run: npm install prettier
       - run: shfmt -d $(git ls-files '*.sh')
         if: always()
