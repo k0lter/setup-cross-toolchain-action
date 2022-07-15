@@ -101,6 +101,7 @@ jobs:
       - uses: ./
         with:
           target: ${{ matrix.target }}
+      - run: sudo apt install -y musl-tools
       - run: git clone https://github.com/taiki-e/rust-cross-toolchain.git
       - run: cargo $BUILD_STD build --verbose --target ${{ matrix.target }}
         working-directory: rust-cross-toolchain/docker/test/fixtures/rust
@@ -120,7 +121,6 @@ jobs:
           persist-credentials: false
       - uses: taiki-e/install-action@shellcheck
       - uses: taiki-e/install-action@shfmt
-      - run: apt install musl-tools
       - run: npm install prettier
       - run: shfmt -d $(git ls-files '*.sh')
         if: always()
