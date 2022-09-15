@@ -66,7 +66,7 @@ case "${host}" in
     x86_64-unknown-linux-gnu)
         apt_packages=()
         case "${target}" in
-            x86_64-unknown-linux-gnu | x86_64-unknown-linux-musl ) ;;
+            x86_64-unknown-linux-gnu | x86_64-unknown-linux-musl) ;;
             *-linux-gnu*)
                 # https://github.com/taiki-e/rust-cross-toolchain/blob/590d6cb4d3a72c26c5096f2ad3033980298cd4aa/docker/linux-gnu.sh
                 case "${target}" in
